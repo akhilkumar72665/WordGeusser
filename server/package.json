@@ -10,6 +10,7 @@
     "test": "ts-node src/tests/run_tests.ts"
   },
   "dependencies": {
+    "an-array-of-english-words": "^2.0.0",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "socket.io": "^4.8.1"

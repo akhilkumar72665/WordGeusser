@@ -5,6 +5,7 @@ export interface ValidationResult {
   valid: boolean;
   sanitizedWord: string;
   reason?: string;
+  canBeCustom?: boolean;
 }
 
 export function validateWordSubmission(
@@ -12,7 +13,8 @@ export function validateWordSubmission(
   expectedLength: number,
   expectedDifficulty: Difficulty,
   existingWords: string[] = [],
-  preventDuplicates: boolean = true
+  preventDuplicates: boolean = true,
+  isCustom: boolean = false
 ): ValidationResult {
   if (!rawWord || typeof rawWord !== 'string') {
     return { valid: false, sanitizedWord: '', reason: 'Word cannot be empty' };
@@ -38,23 +40,27 @@ export function validateWordSubmission(
     };
   }
 
-  // Validate dictionary presence
-  // If word is in curated words or has valid English structure
-  if (!ALL_VALID_WORDS.has(clean)) {
-    // We can also allow valid English words if they meet length, but keeping strict ensures quality
-    return {
-      valid: false,
-      sanitizedWord: clean,
-      reason: `'${clean}' is not recognized in the approved game dictionary.`
-    };
-  }
-
   // Duplicate check
   if (preventDuplicates && existingWords.includes(clean)) {
     return {
       valid: false,
       sanitizedWord: clean,
       reason: `Another player has already chosen '${clean}'. Please pick a different secret word!`
+    };
+  }
+
+  // If flagged as custom by player, accept it
+  if (isCustom) {
+    return { valid: true, sanitizedWord: clean };
+  }
+
+  // Validate dictionary / category presence
+  if (!ALL_VALID_WORDS.has(clean)) {
+    return {
+      valid: false,
+      sanitizedWord: clean,
+      canBeCustom: true,
+      reason: `'${clean}' was not found in standard wordlists. You can lock it in as a Custom Word!`
     };
   }
 

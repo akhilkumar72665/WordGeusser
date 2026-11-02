@@ -99,10 +99,10 @@ export function useSocket() {
   }, [socket]);
 
   const submitSecretWord = useCallback(
-    (word: string): Promise<{ success: boolean; error?: string }> => {
+    (word: string, isCustom?: boolean): Promise<{ success: boolean; error?: string; canBeCustom?: boolean }> => {
       return new Promise((resolve) => {
         if (!socket) return resolve({ success: false, error: 'Socket not connected' });
-        socket.emit('submit_secret_word', { word }, (res: any) => resolve(res));
+        socket.emit('submit_secret_word', { word, isCustom }, (res: any) => resolve(res));
       });
     },
     [socket]

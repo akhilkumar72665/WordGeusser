@@ -93,6 +93,7 @@ export interface AddBotPayload {
 
 export interface SubmitWordPayload {
   word: string;
+  isCustom?: boolean;
 }
 
 export interface AskLetterPayload {

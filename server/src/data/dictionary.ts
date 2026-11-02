@@ -1,4 +1,5 @@
 import { Difficulty } from '../../../shared/types';
+import { ALL_CATEGORY_WORDS } from './categoriesData';
 
 // Curated words classified by length and difficulty
 export interface WordEntry {
@@ -292,9 +293,32 @@ export const CURATED_WORDS: WordEntry[] = [
 
 // Build Fast Lookup Sets
 export const ALL_VALID_WORDS = new Set<string>();
+
+// 1. Add curated words
 CURATED_WORDS.forEach((item) => {
   ALL_VALID_WORDS.add(item.word.toUpperCase());
 });
+
+// 2. Add all categories (Geography, Bollywood, Cricket, Food, Pop Culture, Tech, Mythology, Hinglish, etc.)
+ALL_CATEGORY_WORDS.forEach((word) => {
+  ALL_VALID_WORDS.add(word);
+});
+
+// 3. Add full 274,000+ English dictionary
+try {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const fullDictionary = require('an-array-of-english-words') as string[];
+  if (Array.isArray(fullDictionary)) {
+    for (let i = 0; i < fullDictionary.length; i++) {
+      const w = fullDictionary[i];
+      if (w.length >= 3 && w.length <= 10 && /^[a-zA-Z]+$/.test(w)) {
+        ALL_VALID_WORDS.add(w.toUpperCase());
+      }
+    }
+  }
+} catch (err) {
+  console.warn('[Dictionary] Full dictionary fallback:', err);
+}
 
 /**
  * Filter words by matching length and difficulty, or fallback to any matching length.

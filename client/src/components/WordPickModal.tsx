@@ -6,8 +6,9 @@ interface WordPickModalProps {
   gameState: ClientGameState;
   isConnected?: boolean;
   onSubmitSecretWord: (
-    word: string
-  ) => Promise<{ success: boolean; error?: string }>;
+    word: string,
+    isCustom?: boolean
+  ) => Promise<{ success: boolean; error?: string; canBeCustom?: boolean }>;
 }
 
 export const WordPickModal: React.FC<WordPickModalProps> = ({
@@ -19,6 +20,7 @@ export const WordPickModal: React.FC<WordPickModalProps> = ({
   const [randomLoading, setRandomLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [canBeCustom, setCanBeCustom] = useState(false);
 
   const wordLength = gameState.settings.wordLength;
   const myPlayer = gameState.players.find(
@@ -31,7 +33,10 @@ export const WordPickModal: React.FC<WordPickModalProps> = ({
   ).length;
   const submittedCount = gameState.players.length - waitingCount;
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = async (
+    event: React.FormEvent,
+    forceCustom: boolean = false
+  ) => {
     event.preventDefault();
     if (wordInput.length !== wordLength) {
       setError(`A word of exactly ${wordLength} letters, please.`);
@@ -40,9 +45,12 @@ export const WordPickModal: React.FC<WordPickModalProps> = ({
     setError(null);
     setLoading(true);
     try {
-      const result = await onSubmitSecretWord(wordInput.toUpperCase());
+      const result = await onSubmitSecretWord(wordInput.toUpperCase(), forceCustom);
       if (!result.success) {
         setError(result.error || 'That word could not be sealed.');
+        setCanBeCustom(!!result.canBeCustom);
+      } else {
+        setCanBeCustom(false);
       }
     } catch {
       setError('Something went wrong while sealing the word.');
@@ -231,10 +239,25 @@ export const WordPickModal: React.FC<WordPickModalProps> = ({
                 </button>
               </div>
 
+              {canBeCustom && (
+                <div style={{ marginTop: '1rem', padding: '0.875rem', borderRadius: '8px', border: '1px solid var(--accent)', backgroundColor: 'var(--accent-soft)' }}>
+                  <p style={{ margin: 0, marginBottom: '0.5rem', fontSize: '0.875rem', fontWeight: 600 }}>
+                    Word not in standard dictionary? You can still lock it in:
+                  </p>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    style={{ width: '100%' }}
+                    onClick={(e) => handleSubmit(e, true)}
+                    disabled={loading || !isConnected}
+                  >
+                    ✨ Lock in &ldquo;{wordInput}&rdquo; as Custom Word
+                  </button>
+                </div>
+              )}
+
               <p className="word-hint">
-                Only approved English words from the {difficultyLabel.toLowerCase()}{' '}
-                list are accepted. The server checks every word before it is
-                sealed.
+                Standard dictionary words, famous places, movies, cricket icons, food &amp; mythology accepted — or lock in any unique word as a Custom Word!
               </p>
             </form>
           )}

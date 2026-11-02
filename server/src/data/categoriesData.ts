@@ -1,0 +1,222 @@
+/**
+ * Comprehensive Multi-Category Word Dataset for Wordguesser.
+ * Covers:
+ * 1. Geography & Places (World + Indian Cities, States, Capitals, Rivers, Mountains)
+ * 2. Personalities & Celebrities (Bollywood, Hollywood, Cricket, Football, Historical, Scientists)
+ * 3. Movies, Anime & Pop Culture (Marvel, DC, Anime, Bollywood classics, Series, Characters)
+ * 4. Food, Cooking & Sweets (Indian cuisine, Sweets, Street food, Spices, Global dishes)
+ * 5. Sports, Games & IPL (Sports, Athletes, Teams, Esports, Video games)
+ * 6. Science, Tech & Programming (Tech terms, Coding languages, Space, Electronics)
+ * 7. Brands & Automakers (Global & Indian Brands, Tech, Fashion, Cars)
+ * 8. Mythology, Festivals & Religion (Indian & World Mythology, Festivals, Scriptures)
+ * 9. Hinglish & Common Indian Everyday Words (Chai, Samosa, Bhai, Yaar, Jugaad, etc.)
+ * 10. Nature, Animals, Body, Emotions & Occupations
+ */
+
+export const GEOGRAPHY_WORDS: string[] = [
+  // Indian States & UTs
+  'INDIA', 'DELHI', 'GOA', 'PUNJAB', 'GUJARAT', 'KERALA', 'ASSAM', 'BIHAR', 'ODISHA', 'SIKKIM',
+  'LADAKH', 'JAMMU', 'KASHMIR', 'BENGAL', 'HARYANA', 'MANIPUR', 'TRIPURA', 'MIZORAM',
+  // Indian Cities & Towns
+  'MUMBAI', 'JAIPUR', 'AGRA', 'SURAT', 'PATNA', 'BHOPAL', 'INDORE', 'THANE', 'NAGPUR', 'NASHIK',
+  'RAJKOT', 'VARANASI', 'MEERUT', 'KANPUR', 'LUCKNOW', 'RANCHI', 'NOIDA', 'SHIMLA', 'MANALI',
+  'PRAYAGRAJ', 'UDAIPUR', 'JODHPUR', 'GWALIOR', 'AMRITSAR', 'RISHIKESH', 'HARIDWAR', 'MYSORE',
+  'MANGALORE', 'KOCHI', 'CALICUT', 'MADURAI', 'TRIVANDRUM', 'PUDUCHERRY', 'DARJEELING',
+  // World Countries
+  'USA', 'UK', 'CHINA', 'JAPAN', 'RUSSIA', 'FRANCE', 'BRAZIL', 'CANADA', 'SPAIN', 'ITALY',
+  'MEXICO', 'EGYPT', 'GERMANY', 'TURKEY', 'KOREA', 'NORWAY', 'SWEDEN', 'POLAND', 'GREECE',
+  'NEPAL', 'BHUTAN', 'BURMA', 'IRAN', 'IRAQ', 'PERU', 'CHILE', 'CUBA', 'KENYA', 'QATAR',
+  'OMAN', 'YEMEN', 'VIETNAM', 'THAILAND', 'AUSTRIA', 'BELGIUM', 'DENMARK', 'FINLAND', 'IRELAND',
+  'PORTUGAL', 'SWITZERLAND', 'SINGAPORE', 'MALAYSIA', 'INDONESIA', 'ARGENTINA', 'COLOMBIA',
+  'AUSTRALIA', 'NEWZEALAND', 'ZIMBABWE', 'NIGERIA', 'ETHIOPIA', 'MOROCCO', 'NETHERLANDS',
+  // Capitals & Iconic Cities
+  'PARIS', 'LONDON', 'TOKYO', 'ROME', 'BERLIN', 'MADRID', 'MOSCOW', 'BEIJING', 'CAIRO', 'DUBAI',
+  'DOHA', 'RIYADH', 'SEOUL', 'BANGKOK', 'HANOI', 'VIENNA', 'ATHENS', 'OSLO', 'STOCKHOLM',
+  'DUBLIN', 'WARSAW', 'LISBON', 'OTTAWA', 'HAVANA', 'LIMA', 'SANTIAGO', 'BOGOTA', 'NAIROBI',
+  'JAKARTA', 'MANILA', 'SYDNEY', 'TORONTO', 'CHICAGO', 'BOSTON', 'MIAMI', 'VENICE', 'MILAN',
+  // Rivers, Mountains, Oceans & Deserts
+  'GANGA', 'YAMUNA', 'INDUS', 'KAVERI', 'GODAVARI', 'KRISHNA', 'NARMADA', 'TAPI', 'BRAHMAPUTRA',
+  'NILE', 'AMAZON', 'DANUBE', 'THAMES', 'RHINE', 'VOLGA', 'CONGO', 'MEKONG',
+  'EVEREST', 'HIMALAYA', 'ALPS', 'ANDES', 'ROCKIES', 'K2', 'FUJI', 'KILIMANJARO',
+  'SAHARA', 'THAR', 'GOBI', 'MOJAVE', 'PACIFIC', 'ATLANTIC', 'ARCTIC', 'BALTIC'
+];
+
+export const PERSONALITIES_WORDS: string[] = [
+  // Cricket & Sports Icons
+  'KOHLI', 'DHONI', 'SACHIN', 'ROHIT', 'DRAVID', 'SEHWAG', 'KAPIL', 'GANGULY', 'YUVRAJ',
+  'HARDIK', 'JADEJA', 'PANDYA', 'RAHUL', 'BUMRAH', 'SHAMI', 'SIRAJ', 'KULDEEP', 'CHAHAL',
+  'GILL', 'JAISWAL', 'RINKU', 'PANT', 'ASHWIN', 'WARNE', 'LARA', 'PONTING', 'AKRAM',
+  'MESSI', 'RONALDO', 'NEYMAR', 'PELE', 'MARADONA', 'MBAPPE', 'HAALAND', 'ZIDANE',
+  'FEDERER', 'NADAL', 'DJOKOVIC', 'ALCARAZ', 'SERENA', 'SANIA', 'SINDHU', 'NEHWAL', 'CHOPRA',
+  'BOLT', 'PHELPS', 'TYSON', 'ALI', 'LEBRON', 'JORDAN', 'KOBE', 'CURRY', 'WOODS',
+  // Bollywood & Indian Cinema
+  'AMITABH', 'BACHCHAN', 'SALMAN', 'AAMIR', 'AKSHAY', 'HRITHIK', 'RANBIR', 'RANVEER',
+  'DEEPIKA', 'KATRINA', 'KAREENA', 'PRIYANKA', 'ANUSHKA', 'AISHWARYA', 'MADHURI', 'KAJOL',
+  'KAPOOR', 'KHAN', 'SHROFF', 'DEVGN', 'KUMAR', 'ROSHAN', 'SINGH', 'PADUKONE', 'SHARMA',
+  'RAJINIKANTH', 'KAMAL', 'VIJAY', 'AJITH', 'SURIYA', 'DHANUSH', 'PRABHAS', 'ALLU', 'ARJUN',
+  'CHIRANJEEVI', 'NTR', 'RAMCHARAN', 'MAHESH', 'YASH', 'RISHAB', 'MOHANLAL', 'MAMMOOTTY',
+  // Hollywood & World Directors/Actors
+  'NOLAN', 'CAMERON', 'SPIELBERG', 'TARANTINO', 'SCORSESE', 'FINCHER', 'HITCHCOCK', 'KUBRICK',
+  'DICAPRIO', 'PITT', 'CRUISE', 'HANKS', 'DEPP', 'BALE', 'REEVES', 'PUDDLE', 'DOWNEY',
+  'JOHANSSON', 'STONE', 'LAWRENCE', 'STREEP', 'BLANCHETT', 'ROBBIE', 'ZENDAYA', 'CHALAMET',
+  // Scientists, Inventors & Philosophers
+  'NEWTON', 'EINSTEIN', 'TESLA', 'EDISON', 'GALILEO', 'DARWIN', 'CURIE', 'HAWKING', 'TURING',
+  'KALAM', 'RAMAN', 'BOSE', 'BHABHA', 'ARYABHATA', 'PLATO', 'SOCRATES', 'ARISTOTLE', 'KANT',
+  // Historical & National Leaders
+  'GANDHI', 'NEHRU', 'PATEL', 'BHAGAT', 'AZAD', 'TAGORE', 'AMBEDKAR', 'TILAK', 'SAVARKAR',
+  'SHIVAJI', 'ASHOKA', 'AKBAR', 'BABUR', 'PRATAP', 'LINCOLN', 'MANDELA', 'CHURCHILL',
+  'CAESAR', 'NAPOLEON', 'ALEXANDER', 'LENIN', 'STALIN', 'KENNEDY', 'OBAMA', 'TRUMP', 'MODI'
+];
+
+export const FOOD_WORDS: string[] = [
+  // Indian Main Dishes & Breads
+  'BIRYANI', 'SAMOSA', 'DOSA', 'IDLI', 'PANEER', 'ROTI', 'NAAN', 'PARATHA', 'PURI', 'KULCHA',
+  'DAL', 'MAKHANI', 'TADKA', 'KORMA', 'TIKKA', 'TANDOORI', 'KOFTA', 'PALAK', 'CHANA',
+  'CHOLE', 'BHATURA', 'PAV', 'BHAJI', 'KHICHDI', 'PULAO', 'CURRY', 'KADHI', 'UPMA',
+  'POHA', 'UTTAPAM', 'VADA', 'SAMBAR', 'RASAM', 'THALI', 'DHOKLA', 'THEPLA', 'KHANDVI',
+  // Indian Snacks & Street Food
+  'GOLGAPPA', 'PANIPURI', 'SEVPURI', 'BHELPURI', 'CHAT', 'KACHORI', 'PAKORA', 'BHUJIA',
+  'PAPAD', 'ACHAR', 'CHUTNEY', 'RAITA', 'MOMO', 'MAGGI', 'ROLL', 'FRANKIE',
+  // Indian Sweets & Desserts
+  'JALEBI', 'GULAB', 'JAMUN', 'RASGULLA', 'RASMALAI', 'LADDU', 'MOTICHOOR', 'BESAN',
+  'HALWA', 'GAJAR', 'KHEER', 'PAYASAM', 'BARFI', 'KAJU', 'KATLI', 'PEDA', 'SANDESH',
+  'SHRIKHAND', 'RABRI', 'KULFI', 'FALUDA', 'MODAK', 'GUJIYA', 'SOANPAPDI', 'IMARTI',
+  // Beverages
+  'CHAI', 'TEA', 'COFFEE', 'LASSI', 'CHAAS', 'SHARBAT', 'THANDAI', 'NIMBU', 'SHAKE', 'JUICE',
+  // International Food
+  'PIZZA', 'BURGER', 'PASTA', 'TACO', 'BURRITO', 'NACHOS', 'SUSHI', 'RAMEN', 'NOODLES',
+  'DIMSUM', 'LASAGNA', 'SANDWICH', 'PANCAKE', 'WAFFLE', 'CROISSANT', 'BROWNIE', 'DONUT',
+  'MUFFIN', 'COOKIE', 'PASTRY', 'CUPCAKE', 'PUDDING', 'SALAD', 'SOUP', 'STEAK', 'FRIES',
+  // Ingredients, Fruits, Spices
+  'MASALA', 'HALDI', 'MIRCHI', 'JEERA', 'DHANIYA', 'HING', 'ELAICHI', 'LAVANG', 'SAUNF',
+  'GHEE', 'BUTTER', 'CHEESE', 'PANEER', 'CREAM', 'CURD', 'YOGURT', 'MILK', 'SUGAR', 'HONEY',
+  'MANGO', 'APPLE', 'BANANA', 'ORANGE', 'GRAPES', 'PAPAYA', 'GUAVA', 'LYCHEE', 'CHIKOO',
+  'PINEAPPLE', 'WATERMELON', 'COCONUT', 'BADAM', 'PISTA', 'WALNUT', 'ANJEER', 'KISHMISH'
+];
+
+export const POP_CULTURE_WORDS: string[] = [
+  // Fiction, Superhero & Comic Universes
+  'BATMAN', 'SUPERMAN', 'SPIDERMAN', 'IRONMAN', 'THOR', 'HULK', 'HAWKEYE', 'LOKI', 'THANOS',
+  'JOKER', 'RIDDLER', 'PENGUIN', 'BANE', 'VENOM', 'CARNAGE', 'DEADPOOL', 'WOLVERINE',
+  'AVENGERS', 'MARVEL', 'SHAZAM', 'FLASH', 'CYBORG', 'AQUAMAN', 'ROBIN', 'GROOT', 'ROCKET',
+  // Harry Potter & Fantasy
+  'POTTER', 'HARRY', 'HERMIONE', 'WEASLEY', 'RON', 'SNAPE', 'HAGRID', 'MALFOY', 'DRACO',
+  'VOLDEMORT', 'DUMBLEDORE', 'SIRIUS', 'LUPIN', 'DOBBY', 'HOGWARTS', 'GRYFFINDOR', 'SLYTHERIN',
+  'GANDALF', 'FRODO', 'SAURON', 'LEGOLAS', 'ARAGORN', 'GOLLUM', 'BILBO', 'HOBBIT',
+  // Anime & Manga
+  'NARUTO', 'SASUKE', 'ITACHI', 'KAKASHI', 'MADARA', 'JIRAIYA', 'OROCHIMARU', 'MINATO',
+  'GOKU', 'VEGETA', 'GOHAN', 'PICCOLO', 'FRIEZA', 'CELL', 'BUU', 'TRUNKS', 'BROLY',
+  'LUFFY', 'ZORO', 'SANJI', 'NAMI', 'USOPP', 'CHOPPER', 'SHANKS', 'ACE', 'LAW',
+  'EREN', 'MIKASA', 'ARMIN', 'LEVI', 'TITAN', 'GOJO', 'SUKUNA', 'MEGUMI', 'NOBARA', 'YUJI',
+  'DEKU', 'BAKUGO', 'TODOROKI', 'ALLMIGHT', 'TANJIRO', 'NEZUKO', 'ZENITSU', 'INOSUKE',
+  'LIGHT', 'RYUK', 'L', 'KIRA', 'BLEACH', 'ICHIGO', 'AIZEN', 'SAITAMA', 'GENOS',
+  // Cinema Hits
+  'SHOLAY', 'LAGAAN', 'SWADES', 'DANGAL', 'BAHUBALI', 'RRR', 'PUSHPAN', 'KGF', 'KANTARA',
+  'AVATAR', 'TITANIC', 'INCEPTION', 'MATRIX', 'INTERSTELLAR', 'GLADIATOR', 'GODFATHER'
+];
+
+export const SPORTS_WORDS: string[] = [
+  // Sports
+  'CRICKET', 'FOOTBALL', 'SOCCER', 'HOCKEY', 'TENNIS', 'BADMINTON', 'KABADDI', 'CHESS',
+  'BOXING', 'WRESTLING', 'ARCHERY', 'SHOOTING', 'SWIMMING', 'RUNNING', 'CYCLING', 'POLO',
+  'GOLF', 'BASEBALL', 'BASKETBALL', 'VOLLEYBALL', 'RUGBY', 'BILLIARDS', 'SNOOKER', 'CARROM',
+  // IPL & Cricket Leagues
+  'IPL', 'CSK', 'MI', 'RCB', 'KKR', 'DC', 'RR', 'PBKS', 'LSG', 'GT',
+  'WICKET', 'BOUNDARY', 'SIXER', 'BOWLED', 'CATCH', 'STUMP', 'LBW', 'RUNOUT', 'INNINGS',
+  'GOAL', 'PENALTY', 'OFFSIDE', 'DRIBBLE', 'HEADER', 'CORNER', 'KNOCKOUT', 'DEUCE', 'ACE',
+  // Video Games & Esports
+  'MINECRAFT', 'FORTNITE', 'VALORANT', 'PUBG', 'BGMI', 'POKEMON', 'MARIO', 'ZELDA', 'SONIC',
+  'WARZONE', 'APEX', 'DOTA', 'TEKKEN', 'MORTAL', 'KOMBAT', 'FIFA', 'PACMAN', 'TETRIS', 'ROBLOX'
+];
+
+export const TECH_BRAND_WORDS: string[] = [
+  // Tech Giants & Apps
+  'GOOGLE', 'APPLE', 'MICROSOFT', 'AMAZON', 'TESLA', 'META', 'NETFLIX', 'SPOTIFY', 'TWITTER',
+  'YOUTUBE', 'INSTAGRAM', 'WHATSAPP', 'TELEGRAM', 'SNAPCHAT', 'REDDIT', 'DISCORD', 'GITHUB',
+  'SAMSUNG', 'SONY', 'INTEL', 'NVIDIA', 'AMD', 'ASUS', 'LENOVO', 'DELL', 'HP', 'ACER',
+  'XIAOMI', 'ONEPLUS', 'OPPO', 'VIVO', 'REALME', 'MOTOROLA', 'NOKIA', 'LG', 'CANON', 'NIKON',
+  // Indian Startups & Brands
+  'TATA', 'RELIANCE', 'JIO', 'AIRTEL', 'INFOSYS', 'WIPRO', 'MAHINDRA', 'BAJAJ', 'HERO',
+  'ZOMATO', 'SWIGGY', 'PAYTM', 'PHONEPE', 'FLIPKART', 'MEESHO', 'OLA', 'UBER', 'CRED', 'NYKAA',
+  // Automakers & Luxury
+  'BMW', 'AUDI', 'MERCEDES', 'FERRARI', 'PORSCHE', 'LAMBORGHINI', 'BUGATTI', 'FORD', 'TOYOTA',
+  'HONDA', 'HYUNDAI', 'SUZUKI', 'VOLVO', 'JAGUAR', 'ROVER', 'BENTLEY', 'ROLLS', 'ROYCE',
+  'NIKE', 'ADIDAS', 'PUMA', 'REEBOK', 'GUCCI', 'PRADA', 'ZARA', 'CHANEL', 'ROLEX', 'CASIO',
+  // Programming & Dev
+  'PYTHON', 'JAVA', 'JAVASCRIPT', 'TYPESCRIPT', 'KOTLIN', 'SWIFT', 'RUST', 'GOLANG', 'RUBY',
+  'HTML', 'CSS', 'REACT', 'NODE', 'VUE', 'ANGULAR', 'DOCKER', 'LINUX', 'UBUNTU', 'ANDROID'
+];
+
+export const MYTHOLOGY_FESTIVALS: string[] = [
+  // Indian Festivals & Culture
+  'DIWALI', 'DEEPAVALI', 'HOLI', 'DUSSEHRA', 'NAVRATRI', 'DURGAPUJA', 'GANESHOTSAV',
+  'JANMASHTAMI', 'SHIVRATRI', 'RAMNAVAMI', 'RAKHI', 'RAKSHABANDHAN', 'MAKAR', 'SANKRANTI',
+  'PONGAL', 'ONAM', 'BIHU', 'BAISAKHI', 'CHHATH', 'GURPURAB', 'EID', 'RAMADAN', 'MUHARRAM',
+  'CHRISTMAS', 'EASTER', 'HALLOWEEN', 'THANKSGIVING', 'NEWYEAR',
+  // Indian Deities & Mythological Figures
+  'SHIVA', 'VISHNU', 'BRAHMA', 'GANESH', 'HANUMAN', 'RAMA', 'KRISHNA', 'DURGA', 'KALI',
+  'LAKSHMI', 'SARASWATI', 'PARVATI', 'KARTIK', 'INDRA', 'SURYA', 'VARUNA', 'VAYU', 'YAMA',
+  'AGNI', 'ARJUNA', 'KARNA', 'BHISHMA', 'YUDHISTHIR', 'BHIMA', 'NAKULA', 'SAHADEVA',
+  'DRAUPADI', 'KUNTI', 'GANDHARI', 'DHRITARASHTRA', 'DURYODHANA', 'RAVANA', 'KUMBHAKARNA',
+  'MEGHNADA', 'VIBHISHANA', 'SUGREEVA', 'ANGADA', 'JATAYU', 'VALMIKI', 'VYASA',
+  // Greek, Norse, Roman Myth
+  'ZEUS', 'HERA', 'POSEIDON', 'ARES', 'ATHENA', 'APOLLO', 'ARTEMIS', 'HADES', 'HERMES',
+  'HERCULES', 'PERSEUS', 'ACHILLES', 'THOR', 'ODIN', 'LOKI', 'FREYA', 'HEIMDALL', 'VALHALLA'
+];
+
+export const HINGLISH_EVERYDAY_WORDS: string[] = [
+  'JAI', 'NAMASTE', 'PRANAM', 'VANAKKAM', 'SHUKRIYA', 'DHANYAWAD', 'ALVIDA',
+  'DOST', 'YAAR', 'BHAI', 'BEHEN', 'DADA', 'DADI', 'NANA', 'NANI', 'PAPA', 'MUMMY',
+  'CHACHA', 'CHACHI', 'MAMA', 'MAMI', 'MASI', 'BHAIYA', 'BABU', 'SAHIB', 'GURU', 'USTAD',
+  'PANDIT', 'PUJA', 'MANDIR', 'MASJID', 'GURDWARA', 'CHURCH', 'ASHRAM', 'DARSHAN', 'PRASAD',
+  'AARTI', 'BHAJAN', 'KIRTAN', 'MELA', 'JATRA', 'BAZAAR', 'MANDI', 'DUKAN', 'GALLI',
+  'MOHALLA', 'CHOWK', 'NAGAR', 'DESI', 'VIDESI', 'APNA', 'JUNGLE', 'BAGH', 'TALAB',
+  'GHAT', 'KILA', 'MAHAL', 'HAVELI', 'RICKSHAW', 'AUTO', 'GAADI', 'JUGAAD', 'DHAMAKA',
+  'CHAKKAR', 'HANGAMA', 'CHILL', 'MASTI', 'BAPU', 'NETA', 'DESH', 'WATAN', 'JAWAN', 'KISAN'
+];
+
+export const NATURE_SCIENCE_EMOTIONS: string[] = [
+  // Animals
+  'TIGER', 'LION', 'LEOPARD', 'CHEETAH', 'JAGUAR', 'PANTHER', 'ELEPHANT', 'RHINO', 'HIPPO',
+  'GIRAFFE', 'ZEBRA', 'KANGAROO', 'KOALA', 'PANDA', 'POLAR', 'GRIZZLY', 'WOLF', 'FOX',
+  'HYENA', 'JACKAL', 'CAMEL', 'LLAMA', 'HORSE', 'DONKEY', 'MONKEY', 'CHIMP', 'GORILLA',
+  'RABBIT', 'HARE', 'BEAVER', 'OTTER', 'SQUIRREL', 'DOLPHIN', 'WHALE', 'SHARK', 'OCTOPUS',
+  'SEAL', 'WALRUS', 'PENGUIN', 'PEACOCK', 'EAGLE', 'HAWK', 'FALCON', 'OWL', 'PARROT',
+  'SPARROW', 'PIGEON', 'SWAN', 'FLAMINGO', 'PELICAN', 'OSTRICH', 'VULTURE', 'CROW', 'RAVEN',
+  'COBRA', 'PYTHON', 'VIPER', 'MAMBA', 'CROCODILE', 'ALLIGATOR', 'TORTOISE', 'TURTLE', 'CHAMELEON',
+  // Human Body & Anatomy
+  'BRAIN', 'HEART', 'LUNGS', 'LIVER', 'KIDNEY', 'STOMACH', 'SPINE', 'SKULL', 'THROAT',
+  'TONGUE', 'RETINA', 'CORNEA', 'MUSCLE', 'ARTERY', 'FEMUR', 'THUMB', 'FINGER', 'ANKLE',
+  // Emotions
+  'HAPPINESS', 'SADNESS', 'ANGER', 'ANXIETY', 'COURAGE', 'BRAVERY', 'PASSION', 'JEALOUSY',
+  'EMPATHY', 'COMFORT', 'RELIEF', 'SERENE', 'DELIGHT', 'WONDER', 'ECSTASY', 'TRIUMPH',
+  // Occupations
+  'ENGINEER', 'DOCTOR', 'SURGEON', 'LAWYER', 'TEACHER', 'PROFESSOR', 'ARCHITECT', 'PILOT',
+  'SOLDIER', 'CAPTAIN', 'OFFICER', 'DETECTIVE', 'SCIENTIST', 'ASTRONAUT', 'FARMER', 'CHEF',
+  'PAINTER', 'SCULPTOR', 'WRITER', 'AUTHOR', 'JOURNALIST', 'MUSICIAN', 'ACTOR', 'DANCER',
+  'JUDGE', 'MAYOR', 'MINISTER', 'SENATOR', 'BANKER', 'BROKER', 'SAILOR', 'DIVER', 'CARPENTER'
+];
+
+// Combine all category words into a single fast lookup set
+export const ALL_CATEGORY_WORDS = new Set<string>();
+
+const CATEGORY_LISTS = [
+  GEOGRAPHY_WORDS,
+  PERSONALITIES_WORDS,
+  FOOD_WORDS,
+  POP_CULTURE_WORDS,
+  SPORTS_WORDS,
+  TECH_BRAND_WORDS,
+  MYTHOLOGY_FESTIVALS,
+  HINGLISH_EVERYDAY_WORDS,
+  NATURE_SCIENCE_EMOTIONS
+];
+
+CATEGORY_LISTS.forEach((list) => {
+  list.forEach((item) => {
+    const clean = item.trim().toUpperCase();
+    if (clean.length >= 3 && clean.length <= 10 && /^[A-Z]+$/.test(clean)) {
+      ALL_CATEGORY_WORDS.add(clean);
+    }
+  });
+});

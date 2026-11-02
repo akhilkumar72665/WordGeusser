@@ -224,7 +224,11 @@ export class Room {
     return { success: true };
   }
 
-  public submitSecretWord(playerId: string, word: string): { success: boolean; error?: string } {
+  public submitSecretWord(
+    playerId: string,
+    word: string,
+    isCustom: boolean = false
+  ): { success: boolean; error?: string; canBeCustom?: boolean } {
     if (this.phase !== 'WORD_SELECTION') {
       return { success: false, error: 'Not currently in secret word selection phase.' };
     }
@@ -241,16 +245,26 @@ export class Room {
       this.settings.wordLength,
       this.settings.difficulty,
       existingWords,
-      this.settings.preventDuplicates
+      this.settings.preventDuplicates,
+      isCustom
     );
 
     if (!validation.valid) {
-      return { success: false, error: validation.reason };
+      return {
+        success: false,
+        error: validation.reason,
+        canBeCustom: validation.canBeCustom
+      };
     }
 
     player.secretWord = validation.sanitizedWord;
     player.hasSubmittedWord = true;
-    this.addLog('SYSTEM', `${player.name} has locked in their secret word.`, player.id, player.name);
+    this.addLog(
+      'SYSTEM',
+      `${player.name} has locked in their secret word${isCustom ? ' (custom word)' : ''}.`,
+      player.id,
+      player.name
+    );
 
     this.notifyState();
     this.checkAllWordsSubmitted();

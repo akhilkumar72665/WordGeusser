@@ -133,7 +133,7 @@ io.on('connection', (socket: Socket) => {
       if (typeof callback === 'function') callback({ success: false, error: 'Room not found' });
       return;
     }
-    const res = room.submitSecretWord(socket.id, payload.word);
+    const res = room.submitSecretWord(socket.id, payload.word, !!payload.isCustom);
     if (typeof callback === 'function') callback(res);
   });
 
