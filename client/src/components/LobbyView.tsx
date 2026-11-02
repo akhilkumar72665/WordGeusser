@@ -469,7 +469,7 @@ export const LobbyView: React.FC<LobbyViewProps> = ({
           </ul>
 
           <div className="seats-foot">
-            <div className="share-code">
+            <div className="share-code" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span className="small muted">Table code</span>
               <strong>{roomCode}</strong>
               <button
@@ -479,6 +479,24 @@ export const LobbyView: React.FC<LobbyViewProps> = ({
               >
                 {copied ? 'Invite copied' : 'Copy invite'}
               </button>
+              <a
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                  `Join my Wordguesser table! Secret word multiplayer game.\n\nRoom Code: ${roomCode}\nPlay at: ${window.location.origin}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary btn-sm"
+                style={{
+                  backgroundColor: '#128C7E',
+                  color: '#ffffff',
+                  borderColor: '#128C7E',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                WhatsApp Invite
+              </a>
             </div>
             {copyFailed ? (
               <span className="small text-accent" role="status">

@@ -28,6 +28,7 @@ export const ActionPanel: React.FC<ActionPanelProps> = ({
   const [letterInput, setLetterInput] = useState('');
   const [wordTargetId, setWordTargetId] = useState('');
   const [wordGuessInput, setWordGuessInput] = useState('');
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -114,7 +115,7 @@ export const ActionPanel: React.FC<ActionPanelProps> = ({
     }
   };
 
-  const handleGuessWord = async (event: React.FormEvent) => {
+  const handleGuessWord = (event: React.FormEvent) => {
     event.preventDefault();
     if (!wordTargetId) {
       setError('Choose a rival to name.');
@@ -125,6 +126,12 @@ export const ActionPanel: React.FC<ActionPanelProps> = ({
       return;
     }
 
+    setError(null);
+    setShowConfirmModal(true);
+  };
+
+  const confirmAndSendGuess = async () => {
+    setShowConfirmModal(false);
     setError(null);
     setLoading(true);
     try {
@@ -324,18 +331,52 @@ export const ActionPanel: React.FC<ActionPanelProps> = ({
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-lg btn-block"
-                  disabled={
-                    loading ||
-                    wordGuessInput.length !== wordLength ||
-                    !wordTargetId ||
-                    !isConnected
-                  }
-                >
-                  {loading ? 'Naming…' : 'Name the word'}
-                </button>
+                {!showConfirmModal ? (
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-lg btn-block"
+                    disabled={
+                      loading ||
+                      wordGuessInput.length !== wordLength ||
+                      !wordTargetId ||
+                      !isConnected
+                    }
+                  >
+                    {loading ? 'Naming…' : 'Name the word'}
+                  </button>
+                ) : (
+                  <div style={{
+                    marginTop: '0.75rem',
+                    padding: '1rem',
+                    borderRadius: '8px',
+                    border: '1px solid var(--accent)',
+                    backgroundColor: 'var(--paper-deep)'
+                  }}>
+                    <p style={{ margin: '0 0 0.5rem 0', fontWeight: 600 }}>
+                      Confirm Word Guess: <span style={{ color: 'var(--accent)', letterSpacing: '2px' }}>{wordGuessInput}</span> against {eligibleOpponents.find((p) => p.id === wordTargetId)?.name}?
+                    </p>
+                    <p style={{ margin: '0 0 0.75rem 0', fontSize: '0.85rem', color: 'var(--ink-soft)' }}>
+                      ⚠️ An incorrect guess will deduct 5 points and cost 1 attempt.
+                    </p>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <button
+                        type="button"
+                        className="btn btn-secondary btn-sm"
+                        onClick={() => setShowConfirmModal(false)}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-primary btn-sm"
+                        onClick={confirmAndSendGuess}
+                        disabled={loading || !isConnected}
+                      >
+                        Yes, Confirm Guess
+                      </button>
+                    </div>
+                  </div>
+                )}
               </form>
             </>
           )}
