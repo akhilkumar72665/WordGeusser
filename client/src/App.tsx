@@ -6,6 +6,7 @@ import { LobbyView } from './components/LobbyView';
 import { WordPickModal } from './components/WordPickModal';
 import { GameBoard } from './components/GameBoard';
 import { GameOverModal } from './components/GameOverModal';
+import { HowToPlay } from './components/HowToPlay';
 
 export function App() {
   const {
@@ -144,6 +145,10 @@ export function App() {
           </>
         )}
       </main>
+
+      <footer className="mt-8 pb-12">
+        <HowToPlay />
+      </footer>
     </div>
   );
 }

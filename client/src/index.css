@@ -9,34 +9,34 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
 
-    --paper: #e9eae3;
-    --paper-light: #f3f2ec;
-    --paper-deep: #dedfd5;
+    --paper: #0c1017;
+    --paper-light: #161e2b;
+    --paper-deep: #070a0f;
 
-    --ink: #171b17;
-    --ink-soft: #545a51;
-    --ink-faint: #63695e;
+    --ink: #f8fafc;
+    --ink-soft: #cbd5e1;
+    --ink-faint: #94a3b8;
 
-    --line: #c6c8bc;
-    --line-strong: #a8ab9e;
+    --line: #222e42;
+    --line-strong: #334460;
 
-    --accent: #a22027;
-    --accent-dark: #7c151b;
-    --accent-soft: #f0dedb;
+    --accent: #e11d48;
+    --accent-dark: #be123c;
+    --accent-soft: #271219;
 
-    --forest: #24503b;
-    --forest-soft: #dde7df;
+    --forest: #10b981;
+    --forest-soft: #064e3b;
 
-    --gold: #87651f;
-    --gold-soft: #f0e6cc;
+    --gold: #f59e0b;
+    --gold-soft: #451a03;
 
-    --night: #17251e;
-    --night-light: #223429;
-    --night-line: #3a4b40;
-    --night-ink: #f1f0e9;
-    --night-muted: #aab3a8;
+    --night: #070a0f;
+    --night-light: #161e2b;
+    --night-line: #222e42;
+    --night-ink: #f8fafc;
+    --night-muted: #94a3b8;
 
     --font-display: "Fraunces", Georgia, "Times New Roman", serif;
     --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -2893,5 +2893,151 @@
       height: 38px;
       font-size: 20px;
     }
+  }
+
+  /* How to Play Section */
+  .how-to-play-section {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .how-to-play-panel {
+    background: var(--paper-light);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .how-to-play-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.75rem;
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: var(--ink);
+    transition: background-color 0.15s ease;
+  }
+
+  .how-to-play-toggle:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .how-to-play-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .how-to-play-heading {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .how-to-play-body {
+    padding: 0 1.75rem 1.75rem 1.75rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .rule-card {
+    position: relative;
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .rule-step {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    opacity: 0.18;
+    color: var(--ink);
+    font-family: var(--font-display);
+  }
+
+  .rule-icon {
+    margin-bottom: 0.75rem;
+  }
+
+  .rule-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .rule-card p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .rules-details-box {
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .rules-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+  }
+
+  .categories-box {
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .category-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--paper-light);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  .category-pill strong {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--ink);
+  }
+
+  .category-pill span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
   }
 }
